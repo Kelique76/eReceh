@@ -23,6 +23,8 @@ import butterknife.ButterKnife;
 public class TransaksiPedagangActivity extends MyFunction {
 
 
+    //TODO: masuk ke Firebase project ChatApp dengan USER: rrluck2017@gmail.com password: gadisa08
+
     EditText nameEditext, urlEditext, infoEditext;
     Button btnsave, btncancel;
 
@@ -54,6 +56,9 @@ public class TransaksiPedagangActivity extends MyFunction {
         bakulArrayList = firebaseClient.dataArrayList();
 
         //TODO: # 9 Listview dan data tidak mau muncul, bantu cari salahnya.
+        //TODO: pada setOnClickListener dibawah ini sebaiknya mengunakan Custome Alert saja untuk meyakinkan user dalam
+        //melakukan transaksi dan hanya berfikus pada pengurangan periode pembayaran saja lalu
+        // dilempar ke aktivity webView atao ActionView
 
         mListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

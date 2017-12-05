@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.kelique.chatlatian.uripuruppo.aktifitas.PilihActivity">
-
+<!--TODO: Agar diganti dengan Custome Alert dalam pemilihan file dari kamera atau gallery-->
+    <!--TODO: Tambahkan juga fitur crop filter untuk memfokuskan pada wajah pedagang-->
     <Button
         android:id="@+id/fromGalerry"
         android:layout_width="wrap_content"

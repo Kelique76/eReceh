@@ -26,6 +26,7 @@ import static android.R.attr.value;
 
 public class TransaksiActivity extends AppCompatActivity {
 
+//TODO: aktifity ini kemungkinan tidak terpakai lagi, sementara biarkan dulu
 
     DatabaseReference dRef;
     @BindView(R.id.recycler)

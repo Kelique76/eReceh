@@ -6,6 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.kelique.chatlatian.uripuruppo.aktifitas.WebEcashActivity">
+    <!--TODO: sementara kedua web ini pakai WebView dan ActionView sblm dapat API nya-->
+
 <WebView
     android:layout_width="match_parent"
     android:layout_height="match_parent"

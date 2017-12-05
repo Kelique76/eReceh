@@ -29,7 +29,7 @@ public class JalurNarikAnggota extends RecyclerView.Adapter<JalurNarikAnggota.Pe
         d = data;
         e = recycler;
 
-
+//TODO: kemungkinan tidak terpakai
 
     }
     View.OnClickListener listv = new View.OnClickListener() {

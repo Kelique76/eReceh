@@ -101,7 +101,7 @@ public class FirebaseClient {
 //                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //
 //                    final Dialog dialog = new Dialog(c);
-//                    dialog.setContentView(R.layout.update_bakul);
+//                    dialog.setContentView(R.layout.tpa_update_pedagang);
 //                    dialog.setTitle("Data Pedagang");
 //                    dialog.setCancelable(true);
 //                    dialog.setCanceledOnTouchOutside(false);

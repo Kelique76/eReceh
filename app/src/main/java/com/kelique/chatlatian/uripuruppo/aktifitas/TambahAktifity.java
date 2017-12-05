@@ -207,7 +207,7 @@ public class TambahAktifity extends MyFunction implements OnClickListener {
 
         }
     }
-
+//TODO: Lebih baik dibuatkan Custome Alert yang terdiri dua pilihan (mau ambil file pakai Galerry atau Camera)
     @OnClick(R.id.btnFotoDiri)
     public void onViewClicked() {
         myIntent(PilihActivity.class);

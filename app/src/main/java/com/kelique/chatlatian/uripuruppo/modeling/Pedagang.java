@@ -5,7 +5,7 @@ package com.kelique.chatlatian.uripuruppo.modeling;
  */
 
 public class Pedagang {
-
+//data yang ditarik dari Firebase ini saja, sedangkan data yang akan dipakai untuk transaksi di TransaskiPedagangActivity hanya periode saja
     String photoUrl;
     String name;
     String alamat;

@@ -5,7 +5,7 @@ package com.kelique.chatlatian.uripuruppo.modeling;
  */
 
 public class Anggota {
-
+//TODO: kemungkinan tidak terpakai
     public String nama_lengkap;
     public String alamat;
     public String nama_ibu_kandung;

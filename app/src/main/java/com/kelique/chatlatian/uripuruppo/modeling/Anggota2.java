@@ -5,6 +5,8 @@ package com.kelique.chatlatian.uripuruppo.modeling;
  */
 
 public class Anggota2 {
+
+    //TODO: kemungkinan tidak terpakai
     String keyanggota, namaanggota, lamatanggota,
             ktpanggota, hapeanggota, modalanggota,
             hasilanggota, periodeanggota;

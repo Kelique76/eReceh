@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.kelique.chatlatian.uripuruppo.aktifitas.UploadKtpActivity">
-
+<!--TODO: keputusan wajib tidaknya nanti (foto pasangan ini)-->
     <Button
         android:id="@+id/buttonPilih"
         android:layout_width="230dp"
