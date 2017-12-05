@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/dagang2"
+                android:alpha="0.8"
+    android:layout_height="match_parent"
+    tools:context="com.kelique.chatlatian.uripuruppo.aktifitas.TambahAktifity">
+
+    <EditText
+        android:id="@+id/textName"
+        android:layout_width="360dp"
+        android:layout_height="47dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/wijetkrem"
+        android:hint="Nama Lengkap"
+        android:paddingLeft="15dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp"/>
+
+    <EditText
+        android:id="@+id/textAlamat"
+        android:layout_width="360dp"
+        android:layout_height="47dp"
+        android:layout_alignLeft="@+id/textName"
+        android:layout_alignStart="@+id/textName"
+        android:layout_below="@+id/textName"
+        android:background="@drawable/wijetkrem"
+        android:hint="Alamat Lengkap"
+        android:paddingLeft="15dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="66dp"/>
+
+    <EditText
+        android:id="@+id/textIbuKdg"
+        android:layout_width="360dp"
+        android:layout_height="47dp"
+        android:layout_alignLeft="@+id/textAlamat"
+        android:layout_alignStart="@+id/textAlamat"
+        android:layout_below="@+id/textAlamat"
+        android:background="@drawable/wijetkrem"
+        android:hint="Nama Ibu Kandung"
+        android:paddingLeft="15dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="66dp"/>
+
+    <EditText
+        android:id="@+id/textPasangan"
+        android:layout_width="360dp"
+        android:layout_height="47dp"
+        android:layout_alignLeft="@+id/textIbuKdg"
+        android:layout_alignStart="@+id/textIbuKdg"
+        android:layout_below="@+id/textIbuKdg"
+        android:background="@drawable/wijetkrem"
+        android:hint="Nama Pasangan"
+        android:paddingLeft="15dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="66dp"/>
+
+    <EditText
+        android:id="@+id/textNoKtp"
+        android:layout_width="360dp"
+        android:layout_height="47dp"
+        android:layout_alignLeft="@+id/textPasangan"
+        android:layout_alignStart="@+id/textPasangan"
+        android:layout_below="@+id/textPasangan"
+        android:background="@drawable/wijetkrem"
+        android:hint="No. e-KTP"
+        android:inputType="number"
+        android:paddingLeft="15dp"
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="16dp"/>
+
+    <EditText
+        android:id="@+id/textNoHp"
+        android:layout_width="170dp"
+        android:layout_height="47dp"
+        android:layout_alignLeft="@+id/textNoKtp"
+        android:layout_alignStart="@+id/textNoKtp"
+        android:layout_below="@+id/textNoKtp"
+        android:background="@drawable/wijetkrem"
+        android:hint="No. HP"
+        android:inputType="number"
+        android:paddingLeft="15dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="166dp"/>
+
+    <EditText
+        android:id="@+id/textNoHpPsgn"
+        android:layout_width="170dp"
+        android:layout_height="47dp"
+        android:layout_alignEnd="@+id/textNoKtp"
+        android:layout_alignRight="@+id/textNoKtp"
+        android:layout_below="@+id/textNoKtp"
+        android:background="@drawable/wijetkrem"
+        android:hint="No. HP Pasangan"
+        android:inputType="number"
+        android:paddingLeft="15dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="166dp"/>
+
+    <EditText
+        android:id="@+id/textModal"
+        android:layout_width="170dp"
+        android:layout_height="47dp"
+        android:layout_alignEnd="@+id/textNoHp"
+        android:layout_alignRight="@+id/textNoHp"
+        android:layout_below="@+id/textNoHp"
+        android:background="@drawable/wijetkrem"
+        android:hint="Permodalan"
+        android:inputType="number"
+        android:paddingLeft="15dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="166dp"/>
+
+    <EditText
+        android:id="@+id/textBagiHsl"
+        android:layout_width="170dp"
+        android:layout_height="47dp"
+        android:layout_alignEnd="@+id/textNoHpPsgn"
+        android:layout_alignRight="@+id/textNoHpPsgn"
+        android:layout_below="@+id/textNoHpPsgn"
+        android:background="@drawable/wijetkrem"
+        android:hint="Bagi Hasil"
+        android:inputType="number"
+        android:paddingLeft="15dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="166dp"/>
+
+
+    <TextView
+        android:id="@+id/textCap"
+        android:layout_width="170dp"
+        android:layout_height="37dp"
+        android:layout_alignLeft="@+id/textBagiHsl"
+        android:layout_alignStart="@+id/textBagiHsl"
+        android:layout_below="@+id/textBagiHsl"
+        android:background="@drawable/wijetkrem"
+        android:gravity="center_horizontal|center_vertical"
+        android:hint="Kapitalisasi"
+        android:inputType="number"/>
+
+    <TextView
+        android:id="@+id/textPriod"
+        android:layout_width="170dp"
+        android:layout_height="37dp"
+        android:layout_alignLeft="@+id/textCap"
+        android:layout_alignStart="@+id/textCap"
+        android:layout_below="@+id/textCap"
+        android:background="@drawable/wijetkrem"
+        android:gravity="center_horizontal|center_vertical"
+        android:hint="Periode"
+        android:inputType="number"/>
+
+    <Button
+        android:id="@+id/buttonKrm"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_alignLeft="@+id/textPriod"
+        android:layout_alignStart="@+id/textPriod"
+        android:layout_below="@+id/textPriod"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/wijetkuningan"
+        android:text="Kirim"/>
+
+    <Button
+        android:id="@+id/btnProid"
+        android:layout_width="170dp"
+        android:layout_height="37dp"
+        android:layout_alignLeft="@+id/btnTotal"
+        android:layout_alignStart="@+id/btnTotal"
+        android:layout_below="@+id/btnTotal"
+        android:background="@drawable/wijetkuning"
+        android:text="PERIODE"/>
+
+    <Button
+        android:id="@+id/btnTotal"
+        android:layout_width="170dp"
+        android:layout_height="37dp"
+        android:layout_alignLeft="@+id/textModal"
+        android:layout_alignStart="@+id/textModal"
+        android:layout_below="@+id/textModal"
+        android:background="@drawable/wijetkuning"
+        android:text="TOTAL"/>
+
+    <Button
+        android:id="@+id/btnTiang"
+        android:layout_width="5dp"
+        android:layout_height="180dp"
+        android:layout_above="@+id/buttonKrm"
+        android:layout_centerHorizontal="true"
+        android:background="#f4fc03"
+       />
+
+    <Button
+        android:id="@+id/btnFotoDiri"
+        android:layout_width="170dp"
+        android:layout_height="37dp"
+        android:layout_alignLeft="@+id/btnProid"
+        android:layout_alignStart="@+id/btnProid"
+        android:layout_below="@+id/btnProid"
+        android:layout_marginTop="13dp"
+        android:background="@drawable/wijetkuning"
+        android:text="Foto Diri"/>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/btnFotoDiri"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/btnFotoDiri"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginRight="68dp"
+        app:srcCompat="@drawable/ic_menu_gallery"/>
+
+
+</RelativeLayout>
+

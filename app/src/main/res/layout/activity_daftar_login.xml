@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/backgrounRelativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0e1246"
+    tools:context="com.kelique.chatlatian.uripuruppo.aktifitas.DaftarLoginActivity">
+
+    <EditText
+        android:id="@+id/edtPass"
+        android:layout_width="340dp"
+        android:layout_height="50dp"
+        android:textColorHint="#ffffff"
+        android:layout_alignEnd="@+id/cngSignupModeTV"
+        android:layout_alignRight="@+id/cngSignupModeTV"
+        android:layout_below="@+id/edtUser"
+        android:layout_marginTop="26dp"
+        android:paddingLeft="20dp"
+        android:background="@drawable/wijetkrem"
+        android:drawableRight="@mipmap/ic_password"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="184dp"/>
+
+    <EditText
+        android:id="@+id/edtUser"
+        android:layout_width="340dp"
+        android:layout_height="50dp"
+        android:paddingLeft="20dp"
+        android:layout_below="@+id/logoImageView"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/wijetkrem"
+        android:drawableRight="@mipmap/ic_name"
+        android:hint="@string/username"
+        android:inputType="text"
+        android:textColorHint="#ffffff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+
+    <Button
+        android:id="@+id/btnEnter"
+        android:layout_width="200dp"
+        android:layout_height="43dp"
+        android:layout_alignLeft="@+id/edtPass"
+        android:layout_alignStart="@+id/edtPass"
+        android:layout_below="@+id/edtPass"
+
+        android:layout_marginTop="18dp"
+        android:background="@drawable/wijetijo"
+        android:onClick="untukDaftar"
+        android:text="Daftar"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        app:layout_constraintVertical_bias="0.0"/>
+
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="190dp"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp"
+        app:srcCompat="@drawable/urup"/>
+
+    <TextView
+        android:id="@+id/cngSignupModeTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnEnter"
+        android:layout_alignBottom="@+id/btnEnter"
+        android:layout_alignEnd="@+id/edtUser"
+        android:layout_alignRight="@+id/edtUser"
+        android:text="Mau Apa?"
+        android:textColor="#ffffff"/>
+
+
+    <Button
+        android:id="@+id/btnGoog"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_alignEnd="@+id/logoImageView"
+        android:layout_alignRight="@+id/logoImageView"
+        android:layout_below="@+id/btnEnter"
+        android:layout_marginTop="22dp"
+        android:background="@drawable/wijetijo"
+        android:drawableRight="@drawable/googleg_standard_color_18"
+        android:text="Masuk Via Google"
+        android:textColor="#fff"
+        android:textStyle="bold"/>
+
+
+</RelativeLayout>

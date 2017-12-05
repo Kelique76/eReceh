@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kelique.chatlatian.uripuruppo.aktifitas.KirimFotoActivity">
+
+    <Button
+        android:id="@+id/btnImgKTP"
+        android:layout_width="170dp"
+        android:layout_height="37dp"
+        android:layout_alignLeft="@+id/btnImgDiri"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/btnImgDiri"
+        android:layout_marginTop="38dp"
+        android:background="@drawable/wijetkuning"
+        android:text="Foto Pasangan"/>
+
+    <Button
+        android:id="@+id/btnImgDiri"
+        android:layout_width="170dp"
+        android:layout_height="37dp"
+        android:layout_alignLeft="@+id/btnImgToko"
+        android:layout_alignStart="@+id/btnImgToko"
+        android:layout_below="@+id/btnImgKTP"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/wijetkuning"
+        android:text="Foto Diri"/>
+
+    <Button
+        android:id="@+id/btnImgToko"
+        android:layout_width="170dp"
+        android:layout_height="37dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btnImgDiri"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="116dp"
+        android:background="@drawable/wijetkuning"
+        android:text="Foto toko"/>
+
+    <Button
+        android:id="@+id/buttonKrm"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/btnImgToko"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="49dp"
+        android:background="@drawable/wijetkuningan"
+        android:text="SELESAI"/>
+
+    <EditText
+        android:id="@+id/textFotoKtp"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btnImgKTP"
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="22dp"
+        android:layout_toEndOf="@+id/btnImgKTP"
+        android:layout_toRightOf="@+id/btnImgKTP"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:text="Foto KTP"/>
+
+    <EditText
+        android:id="@+id/textFotoDiri"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textFotoKtp"
+        android:layout_alignStart="@+id/textFotoKtp"
+        android:layout_alignTop="@+id/btnImgDiri"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:text="Foto Diri"/>
+
+    <EditText
+        android:id="@+id/textFotoToko"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textFotoKtp"
+        android:layout_alignStart="@+id/textFotoKtp"
+        android:layout_alignTop="@+id/btnImgToko"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:text="Foto Toko"/>
+
+
+</RelativeLayout>

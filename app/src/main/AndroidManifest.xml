@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.kelique.chatlatian">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/bgflashscreen_bw"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher2"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".uripuruppo.aktifitas.SplashScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".uripuruppo.aktifitas.TransaksiActivity"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".uripuruppo.aktifitas.DaftarLoginActivity"/>
+        <activity
+            android:name=".uripuruppo.aktifitas.MainActivity"
+            android:theme="@style/Theme.Design.NoActionBar"/>
+        <activity android:name=".uripuruppo.aktifitas.KirimFotoActivity"/>
+        <activity android:name=".uripuruppo.aktifitas.TambahAktifity"/>
+        <activity
+            android:name=".uripuruppo.pesanpesan.PesanActivity"
+            android:parentActivityName=".uripuruppo.aktifitas.MainActivity"/>
+        <activity
+            android:name=".uripuruppo.aktifitas.UploadKtpActivity"
+            android:parentActivityName=".uripuruppo.aktifitas.KirimFotoActivity"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".uripuruppo.jangkar.MyFunction"/>
+        <activity android:name=".uripuruppo.aktifitas.UploadFotoDiriActivity">
+        </activity>
+        <activity android:name=".uripuruppo.aktifitas.UploadFotoTokoActivity">
+        </activity>
+        <activity android:name=".uripuruppo.aktifitas.WebEcashActivity">
+        </activity>
+        <activity android:name=".uripuruppo.aktifitas.PilihActivity"/>
+        <activity android:name=".uripuruppo.databis.TransaksiPedagangActivity"/>
+    </application>
+
+</manifest>
