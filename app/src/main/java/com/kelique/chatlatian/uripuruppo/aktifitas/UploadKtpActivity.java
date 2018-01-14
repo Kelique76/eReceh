@@ -85,7 +85,7 @@ public class UploadKtpActivity extends AppCompatActivity {
                         mProgDiag.setMessage("Sedang Mengunggah Foto...");
                         mProgDiag.show();
                         Uri uri = data.getData();
-                        StorageReference tempatfile = mStoreRef.child("FotoPasangan").child(uri.getLastPathSegment());
+                        StorageReference tempatfile = mStoreRef.child("FotoKtp").child(uri.getLastPathSegment());
                         tempatfile.putFile(uri).addOnSuccessListener(new OnSuccessListener<TaskSnapshot>() {
                             @Override
                             public void onSuccess(TaskSnapshot taskSnapshot) {

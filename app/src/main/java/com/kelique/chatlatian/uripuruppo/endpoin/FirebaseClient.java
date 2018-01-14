@@ -32,16 +32,16 @@ public class FirebaseClient {
         firebase = new Firebase(DB_URL);
     }
 
-//    public void savedata(String photoUrl, String name, String alamat, String modal, String bghasil, String periode) {
-//        Pedagang pdg = new Pedagang();
-//        pdg.setName(name);
-//        pdg.setAlamat(alamat);
-//        pdg.setModal(modal);
-//        pdg.setBghasil(bghasil);
-//        pdg.setPeriode(periode);
-//        pdg.setPhotoUrl(photoUrl);
-//        firebase.child("daftar_pedagang").push().setValue(pdg);
-//    }
+    public void savedata(String photoUrl, String name, String alamat, String modal, String bghasil, String periode) {
+        Pedagang pdg = new Pedagang();
+        pdg.setName(name);
+        pdg.setAlamat(alamat);
+        pdg.setModal(modal);
+        pdg.setBghasil(bghasil);
+        pdg.setPeriode(periode);
+        pdg.setPhotoUrl(photoUrl);
+        firebase.child("daftar_pedagang").push().setValue(pdg);
+    }
 
 
     public void refreshdata() {
@@ -90,7 +90,7 @@ public class FirebaseClient {
         }
         if (bakulArrayList.size() > 0) {
 
-            //Log.d("arraynando", bakulArrayList.get(0).getKey());
+            //Log.d("aliandoo", bakulArrayList.get(0).getKey());
             customAdapter = new CustomAdapter(c, bakulArrayList);
 
             listView.setAdapter((ListAdapter) customAdapter);
@@ -164,12 +164,12 @@ public class FirebaseClient {
 //        firebase.child("daftar_pedagang").child(userid).removeValue();
 //    }
 
-    public void update(String photoUrl, String name, String alamat, String modal, String bghasil, String periode) {
-        Pedagang bakul = new Pedagang(alamat, modal, bghasil, periode, name, photoUrl);
-        firebase.child("daftar_pedagang").child(periode).setValue(bakul);
-
-
-    }
+//    public void update(String key, String photoUrl, String name, String alamat, String modal, String bghasil, String periode) {
+//        Pedagang bakul = new Pedagang(key, alamat, modal, bghasil, periode, name, photoUrl);
+//        firebase.child("daftar_pedagang").child(periode).setValue(bakul);
+//
+//
+//    }
 
     public ArrayList<Pedagang> dataArrayList(){
             return bakulArrayList;

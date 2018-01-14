@@ -51,9 +51,10 @@ public class TransaksiPedagangActivity extends MyFunction {
             }
         });
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        mListview = (ListView) findViewById(R.id.listview);
         firebaseClient = new FirebaseClient(this, DB_URL, mListview);
         firebaseClient.refreshdata();
-        bakulArrayList = firebaseClient.dataArrayList();
+        //bakulArrayList = firebaseClient.dataArrayList();
 
         //TODO: # 9 Listview dan data tidak mau muncul, bantu cari salahnya.
         //TODO: pada setOnClickListener dibawah ini sebaiknya mengunakan Custome Alert saja untuk meyakinkan user dalam

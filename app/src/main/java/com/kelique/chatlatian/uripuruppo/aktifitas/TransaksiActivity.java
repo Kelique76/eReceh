@@ -12,9 +12,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.kelique.chatlatian.R;
-import com.kelique.chatlatian.uripuruppo.endpoin.JalurNarikAnggota;
-import com.kelique.chatlatian.uripuruppo.modeling.Anggota;
-import com.kelique.chatlatian.uripuruppo.modeling.Anggota2;
 
 import java.util.ArrayList;
 

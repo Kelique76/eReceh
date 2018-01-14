@@ -1,12 +1,20 @@
 package com.kelique.chatlatian.uripuruppo.aktifitas;
 
+import android.Manifest;
+import android.Manifest.permission;
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build.VERSION;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.provider.MediaStore.Images.Media;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -17,13 +25,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.google.firebase.storage.UploadTask.TaskSnapshot;
 import com.kelique.chatlatian.R;
 import com.kelique.chatlatian.uripuruppo.jangkar.MyFunction;
-import com.kelique.chatlatian.uripuruppo.modeling.Anggota;
+
+import java.io.ByteArrayOutputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,6 +56,8 @@ public class TambahAktifity extends MyFunction implements OnClickListener {
     String id;
     private FirebaseStorage mFirebaseStorage;
     private StorageReference mIdPhotosStorageReference;
+    private FirebaseAuth mAuth;
+    private ProgressDialog mProgDiag;
 
 
     @BindView(R.id.textName)
@@ -67,8 +88,6 @@ public class TambahAktifity extends MyFunction implements OnClickListener {
     Button mBtnProid;
     @BindView(R.id.btnTotal)
     Button mBtnTotal;
-    @BindView(R.id.btnFotoDiri)
-    Button mBtnFotoDiri;
     @BindView(R.id.imageView2)
     ImageView mImageView1;
 
@@ -80,9 +99,12 @@ public class TambahAktifity extends MyFunction implements OnClickListener {
         ButterKnife.bind(this);
 
 
+
+
         dRef = FirebaseDatabase.getInstance().getReference("daftar_pedagang");
         mFirebaseStorage = FirebaseStorage.getInstance();
-        mIdPhotosStorageReference = mFirebaseStorage.getReference().child("foto_diri");
+        //mIdPhotosStorageReference = mFirebaseStorage.getReference().child("foto_diri/"+ imagePath);
+        mIdPhotosStorageReference = mFirebaseStorage.getReferenceFromUrl("gs://chat-app-64353.appspot.com");
         id = dRef.push().getKey();
 
         mTextModal = (EditText) findViewById(R.id.textModal);
@@ -91,40 +113,84 @@ public class TambahAktifity extends MyFunction implements OnClickListener {
         mBtnProid = (Button) findViewById(R.id.btnProid);
         mTextCap = (TextView) findViewById(R.id.textCap);
         mTextPriod = (TextView) findViewById(R.id.textPriod);
-        mImageView1 = (ImageView) findViewById(R.id.imagePoto);
+        mImageView1 = (ImageView) findViewById(R.id.imageView2);
 
 
         mBtnTotal.setOnClickListener(this);
         mBtnProid.setOnClickListener(this);
 
+        //TODO: #1. Dibagian ini bikin crash nggak ngerti kenapa?
+        //TODO: #2 Setelah berhasil filenya nyangkut di TambahAktivity agar di tarik ke Firebase bersamaan dengan datanya
 
-        /* ambil hasil dari hasil pilihan galery di PilihActivity */
-        Uri selectedImgUri = getIntent().getData();
-        if (selectedImgUri != null) {
-            Log.e("Gallery ImageURI", "" + selectedImgUri);
-            String[] selectedImgPath = { MediaStore.Images.Media.DATA };
+        mImageView1.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cekPermisi();
+            }
+        });
 
-            Cursor cursor = getContentResolver().query(selectedImgUri,
-                    selectedImgPath, null, null, null);
+
+    }
+
+    int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE=123;
+    private void cekPermisi() {
+        if(VERSION.SDK_INT>=23){
+            if(ActivityCompat.checkSelfPermission(this, permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+                // Should we show an explanation?
+                if (shouldShowRequestPermissionRationale(
+                        Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                    // Explain to the user why we need to read the contacts
+                }
+
+                requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
+
+                // MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE is an
+                // app-defined int constant that should be quite unique
+
+                return;
+            }
+        }
+        ambilGambar();
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(final int requestCode, @NonNull final String[] permissions, @NonNull final int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode ==MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                ambilGambar();
+            } else {
+                Toast.makeText(TambahAktifity.this,"Cannot access your images",Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+    int PICK_IMAGE_CODE=123;
+    private void ambilGambar() {
+        Intent intent = new Intent(Intent.ACTION_PICK, Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(intent, PICK_IMAGE_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE_CODE && data != null && resultCode == RESULT_OK) {
+            Uri fotoPilihan = data.getData();
+            String[] filePathColumn = {MediaStore.Images.Media.DATA};
+
+            Cursor cursor = getContentResolver().query(fotoPilihan,
+                    filePathColumn, null, null, null);
             cursor.moveToFirst();
 
-            int indexCol = cursor.getColumnIndex(selectedImgPath[0]);
-            String imgPath = cursor.getString(indexCol);
+            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+            String picturePath = cursor.getString(columnIndex);
             cursor.close();
-            //TODO: #1. Dibagian ini bikin crash nggak ngerti kenapa?
-            //TODO: #2 Setelah berhasil filenya nyangkut di TambahAktivity agar di tarik ke Firebase bersamaan dengan datanya
-            mImageView1.setImageBitmap(BitmapFactory.decodeFile(imgPath));
+
+//            bitmap = BitmapFactory.decodeFile(picturePath);
+            mImageView1.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+
         }
-
-    /* ambil hasil dari hasil jepretan kamera di PilihActivity */
-        Intent intent_camera = getIntent();
-        Bitmap camera_img_bitmap = (Bitmap) intent_camera
-                .getParcelableExtra("BitmapImage");
-        if (camera_img_bitmap != null) {
-            mImageView1.setImageBitmap(camera_img_bitmap);
-        }
-
-
     }
 
     @OnClick({R.id.buttonKrm})
@@ -141,6 +207,23 @@ public class TambahAktifity extends MyFunction implements OnClickListener {
         String permodalan = mTextModal.getText().toString();
         String bagihasil = mTextBagiHsl.getText().toString();
         String periode = mTextPriod.getText().toString();
+
+
+//        String imageRef = mIdPhotosStorageReference.child("foto_diri/" + imagePath);
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        String email = currentUser.getEmail().toString();
+        DateFormat detfor = new SimpleDateFormat("ddMMyyHHmmss");
+        Date dataObj = new Date();
+        String imagePath = SplitString(email) + "," + detfor.format(dataObj) + ".jpg";
+        StorageReference imageRef = mIdPhotosStorageReference.child("foto_diri/" + imagePath);
+        mImageView1.setDrawingCacheEnabled(true);
+        mImageView1.buildDrawingCache();
+        Bitmap bitmap = mImageView1.getDrawingCache();
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] fotoDiri = baos.toByteArray();
+
         //TODO: #3 Tarik data gambar ke Firebase dan masukkan ke Folder "foto_diri", StorageReference sudah dipersiapkan di line 85
 
         switch (view.getId()) {
@@ -169,10 +252,37 @@ public class TambahAktifity extends MyFunction implements OnClickListener {
                     mTextCap.setError("Jangan Lupa Tekan Tombol Hitung Periode");
                 } else {
 
-                    Anggota anggota = new Anggota(nama, alamat, namaibu, pasangan, ktp, hp, hppasangan, permodalan, bagihasil, periode);
-                    dRef.child(id).setValue(anggota);
-                    startActivity(new Intent(TambahAktifity.this, KirimFotoActivity.class));
-                    Toast.makeText(getApplicationContext(), "Penambahan Data Berhasil", Toast.LENGTH_SHORT).show();
+                    final Anggota anggota = new Anggota(nama, alamat, namaibu, pasangan, ktp, hp, hppasangan, permodalan, bagihasil, periode);
+                    UploadTask uploadTask = imageRef.putBytes(fotoDiri);
+
+                    uploadTask.addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                            Toast.makeText(TambahAktifity.this,"Gagal upload",Toast.LENGTH_LONG).show();
+                        }
+                    }).addOnSuccessListener(new OnSuccessListener<TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                            String downloadUrl = taskSnapshot.getDownloadUrl().toString();
+
+                            dRef.child(id).setValue(anggota);
+                            dRef.child(id).child("alamatUrl").setValue(downloadUrl);
+                            Toast.makeText(getApplicationContext(), "Penambahan Data Berhasil", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(TambahAktifity.this, KirimFotoActivity.class));
+
+                        }
+                    }).addOnProgressListener(new OnProgressListener<TaskSnapshot>() {
+                        @Override
+                        public void onProgress(TaskSnapshot taskSnapshot) {
+                            double progress = (100.0 * taskSnapshot.getBytesTransferred())/taskSnapshot.getTotalByteCount();
+//                            displaying percentage in progress dialog
+                            mProgDiag.setMessage("Menyimpan Data " + ((int) progress) + "%...");
+                        }
+                    });
+
+
+
                 }
                 break;
 
@@ -208,8 +318,8 @@ public class TambahAktifity extends MyFunction implements OnClickListener {
         }
     }
 //TODO: Lebih baik dibuatkan Custome Alert yang terdiri dua pilihan (mau ambil file pakai Galerry atau Camera)
-    @OnClick(R.id.btnFotoDiri)
-    public void onViewClicked() {
-        myIntent(PilihActivity.class);
-    }
+//    @OnClick(R.id.btnFotoDiri)
+//    public void onViewClicked() {
+//        myIntent(PilihActivity.class);
+//    }
 }

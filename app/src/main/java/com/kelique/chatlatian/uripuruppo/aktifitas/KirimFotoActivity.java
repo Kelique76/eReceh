@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 
 import com.kelique.chatlatian.R;
 
@@ -25,12 +24,12 @@ public class KirimFotoActivity extends AppCompatActivity {
     Button mBtnImgToko;
     @BindView(R.id.buttonKrm)
     Button mButtonKrm;
-    @BindView(R.id.textFotoKtp)
-    EditText mTextFotoKtp;
-    @BindView(R.id.textFotoDiri)
-    EditText mTextFotoDiri;
-    @BindView(R.id.textFotoToko)
-    EditText mTextFotoToko;
+//    @BindView(R.id.textFotoKtp)
+//    EditText mTextFotoKtp;
+//    @BindView(R.id.textFotoDiri)
+//    EditText mTextFotoDiri;
+//    @BindView(R.id.textFotoToko)
+//    EditText mTextFotoToko;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +46,7 @@ public class KirimFotoActivity extends AppCompatActivity {
                 startActivity(new Intent(KirimFotoActivity.this, UploadKtpActivity.class));
                 break;
             case R.id.btnImgDiri:
-                startActivity(new Intent(KirimFotoActivity.this, UploadFotoDiriActivity.class));
+                startActivity(new Intent(KirimFotoActivity.this, UploadFotoPasanganActivity.class));
                 break;
             case R.id.btnImgToko:
                 startActivity(new Intent(KirimFotoActivity.this, UploadFotoTokoActivity.class));

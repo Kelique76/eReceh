@@ -36,7 +36,7 @@
             android:parentActivityName=".uripuruppo.aktifitas.KirimFotoActivity"
             android:theme="@style/AppTheme"/>
         <activity android:name=".uripuruppo.jangkar.MyFunction"/>
-        <activity android:name=".uripuruppo.aktifitas.UploadFotoDiriActivity">
+        <activity android:name=".uripuruppo.aktifitas.UploadFotoPasanganActivity">
         </activity>
         <activity android:name=".uripuruppo.aktifitas.UploadFotoTokoActivity">
         </activity>

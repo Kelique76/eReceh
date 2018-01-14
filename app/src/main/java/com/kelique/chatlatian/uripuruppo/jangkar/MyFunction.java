@@ -91,7 +91,13 @@ public class MyFunction extends AppCompatActivity {
         return dateFormat.format(date);
     }
 
-//    public void MyIntent(Class kelasIntent) {
-//        startActivity(new Intent(c, kelasIntent));
+//    fun SplitString(email:String):String{
+//        val split= email.split("@")
+//        return split[0]
 //    }
+    public String SplitString(String email){
+        String[] split = email.split("@");
+        return split[0];
+
+    }
 }

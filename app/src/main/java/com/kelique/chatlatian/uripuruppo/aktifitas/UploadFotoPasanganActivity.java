@@ -23,7 +23,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class UploadFotoDiriActivity extends AppCompatActivity {
+public class UploadFotoPasanganActivity extends AppCompatActivity {
     @BindView(R.id.button1)
     Button mButton1;
     private ImageView mImage;
@@ -64,14 +64,14 @@ public class UploadFotoDiriActivity extends AppCompatActivity {
                         mProgDiag.setMessage("Sedang Mengunggah Foto...");
                         mProgDiag.show();
                         Uri uri = data.getData();
-                        StorageReference tempatfile = mStoreRef.child("FotoDiri").child(uri.getLastPathSegment());
+                        StorageReference tempatfile = mStoreRef.child("FotoPasangan").child(uri.getLastPathSegment());
                         tempatfile.putFile(uri).addOnSuccessListener(new OnSuccessListener<TaskSnapshot>() {
                             @Override
                             public void onSuccess(TaskSnapshot taskSnapshot) {
 //                                @SuppressWarnings("VisibleForTests") Uri downloadUri = taskSnapshot.getUploadSessionUri();
 //                                Log.d("DEBUUG", String.valueOf(downloadUri));
-//                                Picasso.with(UploadFotoDiriActivity.this).load(downloadUri).fit().centerCrop().error(R.mipmap.ic_launcher).into(mImage);
-                                Toast.makeText(UploadFotoDiriActivity.this, "Unggahan Foto Berhasil", Toast.LENGTH_SHORT).show();
+//                                Picasso.with(UploadFotoPasanganActivity.this).load(downloadUri).fit().centerCrop().error(R.mipmap.ic_launcher).into(mImage);
+                                Toast.makeText(UploadFotoPasanganActivity.this, "Unggahan Foto Berhasil", Toast.LENGTH_SHORT).show();
                                 mProgDiag.dismiss();
 
                             }
@@ -100,7 +100,7 @@ public class UploadFotoDiriActivity extends AppCompatActivity {
             case R.id.button1:
                 break;
             case R.id.button2:
-                startActivity(new Intent(UploadFotoDiriActivity.this, KirimFotoActivity.class));
+                startActivity(new Intent(UploadFotoPasanganActivity.this, KirimFotoActivity.class));
                 break;
         }
     }
