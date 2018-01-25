@@ -4,6 +4,12 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <uses-feature android:name="android.hardware.camera"/>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -19,14 +25,12 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name=".uripuruppo.aktifitas.TransaksiActivity"
-            android:theme="@style/AppTheme"/>
         <activity android:name=".uripuruppo.aktifitas.DaftarLoginActivity"/>
         <activity
             android:name=".uripuruppo.aktifitas.MainActivity"
             android:theme="@style/Theme.Design.NoActionBar"/>
-        <activity android:name=".uripuruppo.aktifitas.KirimFotoActivity"/>
+        <activity android:name=".uripuruppo.aktifitas.KirimFotoActivity">
+        </activity>
         <activity android:name=".uripuruppo.aktifitas.TambahAktifity"/>
         <activity
             android:name=".uripuruppo.pesanpesan.PesanActivity"
@@ -35,7 +39,7 @@
             android:name=".uripuruppo.aktifitas.UploadKtpActivity"
             android:parentActivityName=".uripuruppo.aktifitas.KirimFotoActivity"
             android:theme="@style/AppTheme"/>
-        <activity android:name=".uripuruppo.jangkar.MyFunction"/>
+        <activity android:name=".uripuruppo.helper.MyFunction"/>
         <activity android:name=".uripuruppo.aktifitas.UploadFotoPasanganActivity">
         </activity>
         <activity android:name=".uripuruppo.aktifitas.UploadFotoTokoActivity">
@@ -43,7 +47,9 @@
         <activity android:name=".uripuruppo.aktifitas.WebEcashActivity">
         </activity>
         <activity android:name=".uripuruppo.aktifitas.PilihActivity"/>
-        <activity android:name=".uripuruppo.databis.TransaksiPedagangActivity"/>
+        <activity android:name=".uripuruppo.databis.TransaksiPedagangActivity"
+            />
+        <activity android:name=".uripuruppo.helper.GalleryUtil"/>
     </application>
 
 </manifest>

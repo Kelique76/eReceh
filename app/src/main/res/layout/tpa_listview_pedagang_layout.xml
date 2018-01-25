@@ -15,7 +15,8 @@
     <RelativeLayout
         android:id="@+id/relat"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/wijetkuning">
 
         <!--TODO: #4 Tarik data yang diupload via tambahAktivity yg dibutuhkan saja sesuai dengan apa lang di Layout-->
         <!--TODO: #6 Buatin search Quaery diatas menu (dengan menu item gambar kontobimo)-->
@@ -23,35 +24,37 @@
         <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/beachimage"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:paddingTop="5dp"
             android:src="@drawable/urup"
-            app:civ_border_color="#FF000000"
+            app:civ_border_color="#e1d6d6"
             app:civ_border_width="2dp"/>
 
         <TextView
             android:id="@+id/nameTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@id/beachimage"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="namesss"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textColor="@color/colorPrimary"
-            android:textStyle="bold"/>
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:layout_alignBottom="@+id/txtBgHslAngka"
+            android:layout_below="@+id/beachimage"
+            android:layout_toLeftOf="@+id/txtModalAngka"
+            android:layout_toStartOf="@+id/txtModalAngka"
+            android:gravity="center_horizontal"
+            android:padding="2dp"
+            android:text="name"
+            android:textColor="#ef1313"/>
 
         <TextView
             android:id="@+id/txtAlamat"
             android:layout_width="170dp"
             android:layout_height="20dp"
-            android:layout_alignParentTop="true"
+            android:layout_above="@+id/txtModalAngka"
             android:layout_toEndOf="@+id/beachimage"
             android:layout_toRightOf="@+id/beachimage"
             android:gravity="fill_vertical"
             android:padding="1dp"
-            android:text="Alamat:"
+            android:paddingLeft="5dp"
+            android:text="Permodalan"
             android:textAppearance="?android:textAppearanceLarge"
             android:textColor="@color/black_overlay"
             android:textSize="15dp"
@@ -59,7 +62,7 @@
 
         <TextView
             android:id="@+id/txtAlamatFull"
-            android:layout_width="170dp"
+            android:layout_width="190dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtModal"
             android:layout_toEndOf="@+id/beachimage"
@@ -69,19 +72,18 @@
             android:text="aaaallllaaammmaaatttt"
             android:textAppearance="?android:textAppearanceLarge"
             android:textColor="@color/colorPrimary"
-            android:textSize="15dp"
-            android:textStyle="bold"/>
+            android:textSize="10dp"
+            />
 
         <TextView
             android:id="@+id/txtModal"
-            android:layout_width="170dp"
+            android:layout_width="190dp"
             android:layout_height="20dp"
-            android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/beachimage"
             android:layout_toRightOf="@+id/beachimage"
             android:gravity="start"
             android:padding="1dp"
-            android:text="Permodalan"
+            android:text="Alamat Anggota"
             android:textAppearance="?android:textAppearanceLarge"
             android:textColor="@color/black_overlay"
             android:textSize="15dp"
@@ -90,8 +92,8 @@
         <TextView
             android:id="@+id/txtModalAngka"
             android:layout_width="170dp"
-            android:layout_height="20dp"
-            android:layout_above="@+id/txtBgHasil"
+            android:layout_height="15dp"
+            android:layout_above="@+id/nameTxt"
             android:layout_toEndOf="@+id/beachimage"
             android:layout_toRightOf="@+id/beachimage"
             android:gravity="start"
@@ -99,7 +101,7 @@
             android:text="1000000"
             android:textAppearance="?android:textAppearanceLarge"
             android:textColor="@color/colorPrimary"
-            android:textSize="15dp"
+            android:textSize="10dp"
             android:textStyle="bold"/>
 
         <TextView
@@ -113,13 +115,13 @@
             android:text="Bagi Hasil"
             android:textAppearance="?android:textAppearanceLarge"
             android:textColor="@color/black_overlay"
-            android:textSize="15dp"
+            android:textSize="14dp"
             android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/txtBgHslAngka"
             android:layout_width="170dp"
-            android:layout_height="20dp"
+            android:layout_height="15dp"
             android:layout_below="@+id/txtBgHasil"
             android:layout_toEndOf="@+id/beachimage"
             android:layout_toRightOf="@+id/beachimage"
@@ -127,30 +129,33 @@
             android:text="200.000"
             android:textAppearance="?android:textAppearanceLarge"
             android:textColor="@color/colorPrimary"
-            android:textSize="15dp"
-            android:textStyle="bold"/>
+            android:textSize="10dp"
+            />
         <!--TODO: #5 Ganti Progress bar ini dengan Chart yang librarynya: ada disini: -->
         <!--TODO: https://github.com/bmarrdev/android-DecoView-charting-->
-        <ProgressBar
-            android:id="@+id/progressBar2"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="19dp"
-            android:layout_marginStart="19dp"
-            android:layout_toEndOf="@+id/txtModal"
-            android:layout_toRightOf="@+id/txtModal"/>
 
         <TextView
             android:id="@+id/txtPeriode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/txtBgHasil"
-            android:layout_alignBottom="@+id/txtBgHasil"
-            android:layout_alignEnd="@+id/progressBar2"
-            android:layout_alignRight="@+id/progressBar2"
-            android:text="60/60"/>
+            android:layout_below="@+id/txtAlamat"
+            android:layout_toLeftOf="@+id/txtPeriodeAja"
+            android:layout_toStartOf="@+id/txtPeriodeAja"
+            android:text="60"
+            android:textColor="#000"/>
+
+        <TextView
+            android:id="@+id/txtPeriodeAja"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/txtPeriode"
+            android:layout_alignBottom="@+id/txtPeriode"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="12dp"
+            android:layout_marginRight="12dp"
+            android:text=" dari 60"
+            android:textColor="#000"/>
 
 
     </RelativeLayout>

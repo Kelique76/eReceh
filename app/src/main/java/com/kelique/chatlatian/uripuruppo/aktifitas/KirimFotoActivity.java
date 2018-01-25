@@ -36,6 +36,7 @@ public class KirimFotoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kirim_foto);
         ButterKnife.bind(this);
+
     }
 
     @OnClick({R.id.btnImgKTP, R.id.btnImgDiri, R.id.btnImgToko, R.id.buttonKrm})
@@ -54,6 +55,8 @@ public class KirimFotoActivity extends AppCompatActivity {
             case R.id.buttonKrm:
                 startActivity(new Intent(KirimFotoActivity.this, MainActivity.class));
                 break;
+
         }
     }
+
 }

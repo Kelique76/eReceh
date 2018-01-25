@@ -11,7 +11,7 @@ import com.kelique.chatlatian.R;
  */
 
 public class MyHolder {
-    public TextView nametext, alamatxtFull, permodalanTxt, bagihasilText, periodeTxt;
+    public TextView nametext, alamatxtFull, bagihasilText, permodalanTxt, periodeTxt;
     public ImageView img;
     public MyHolder(View view){
         nametext = (TextView)view.findViewById(R.id.nameTxt);

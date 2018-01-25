@@ -25,6 +25,7 @@ public class CustomAdapter extends BaseAdapter {
     Context c;
     ArrayList<Pedagang> mBakulArrayList;
     LayoutInflater mInflater;
+    ImageView imgView;
     public CustomAdapter(Context c, ArrayList<Pedagang> mBakulArrayList) {
         this.c = c;
         this.mBakulArrayList = mBakulArrayList;
@@ -54,25 +55,19 @@ public class CustomAdapter extends BaseAdapter {
         }if(view==null) {
             view = mInflater.inflate(R.layout.tpa_listview_pedagang_layout, viewGroup, false);
         }
-//        TextView nametext, alamatxtFull, permodalanTxt, bagihasilText, periodeTxt;
-        ImageView imgView;
-//
-//        nametext = view.findViewById(R.id.nameTxt);
-//        alamatxtFull = view.findViewById(R.id.txtAlamatFull);
-//        permodalanTxt = view.findViewById(R.id.txtModalAngka);
-//        bagihasilText = view.findViewById(R.id.txtBgHslAngka);
-//        periodeTxt = view.findViewById(R.id.txtPeriode);
+
+
         imgView = view.findViewById(R.id.beachimage);
         MyHolder holder = new MyHolder(view);
 
 
-        holder.nametext.setText(mBakulArrayList.get(i).getName());
+        holder.nametext.setText(mBakulArrayList.get(i).getnama());
         holder.alamatxtFull.setText(mBakulArrayList.get(i).getAlamat());
-        holder.permodalanTxt.setText(mBakulArrayList.get(i).getModal());
-        holder.bagihasilText.setText(mBakulArrayList.get(i).getBghasil());
-        holder.periodeTxt.setText(mBakulArrayList.get(i).getPeriode());
+        holder.permodalanTxt.setText(mBakulArrayList.get(i).getpermodalan());
+        holder.bagihasilText.setText(mBakulArrayList.get(i).getbagi_hasil());
+        holder.periodeTxt.setText(mBakulArrayList.get(i).getperiode());
         //Glide.with(c).load(mBakulArrayList.get(i).getPhotoUrl()).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(imgView);
-        Picasso.with(c).load(mBakulArrayList.get(i).getPhotoUrl()).into(imgView);
+        Picasso.with(c).load(mBakulArrayList.get(i).getalamatUrl()).into(imgView);
         holder.periodeTxt.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {

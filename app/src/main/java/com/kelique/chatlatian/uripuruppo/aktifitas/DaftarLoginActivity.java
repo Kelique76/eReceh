@@ -31,7 +31,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.kelique.chatlatian.R;
-import com.kelique.chatlatian.uripuruppo.jangkar.MyFunction;
+import com.kelique.chatlatian.uripuruppo.helper.MyFunction;
+import com.kelique.chatlatian.uripuruppo.helper.SessionManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -246,6 +247,13 @@ public class DaftarLoginActivity extends MyFunction implements OnClickListener, 
     }
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
+        SessionManager sesi = new SessionManager(c);
+        //sesi.cerateLoginSession("9");
+        sesi.setNama(acct.getPhotoUrl().toString());
+        sesi.setEmail(acct.getDisplayName().toString());
+        sesi.setAlamat(acct.getEmail().toString());
+
+
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
         // [START_EXCLUDE silent]
         showProgressDialog("Memuat informasi");

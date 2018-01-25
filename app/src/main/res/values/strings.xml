@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">eRR</string>
+    <string name="app_name">PikoFin</string>
     <string name="sign_out">Sign Out</string>
     <string name="send_button_label">Send</string>
     <string name="facebook_application_id" translatable="false">APP_ID</string>
@@ -114,5 +114,6 @@
     <string name="title_activity_firebase_databasee">FirebaseDatabaseeActivity</string>
     <string name="banner_ad_unit_id">ca-app-pub-9672976856924793/9755510268</string>
     <string name="pilihCara">Pilih Cara Mengambil Foto:</string>
+    <string name="pesan">Berhasil \n Data Direkam</string>
 </resources>
 

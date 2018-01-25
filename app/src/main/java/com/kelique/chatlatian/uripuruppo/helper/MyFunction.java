@@ -2,7 +2,7 @@
  * Copyright (c) 2017. Gilang Ramadhan (gilangramadhan96.gr@gmail.com)
  */
 
-package com.kelique.chatlatian.uripuruppo.jangkar;
+package com.kelique.chatlatian.uripuruppo.helper;
 
 import android.app.ProgressDialog;
 import android.content.Context;

@@ -12,17 +12,22 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.kelique.chatlatian.R;
 import com.kelique.chatlatian.uripuruppo.databis.TransaksiPedagangActivity;
+import com.kelique.chatlatian.uripuruppo.helper.SessionManager;
 import com.kelique.chatlatian.uripuruppo.pesanpesan.PesanActivity;
+import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,6 +51,7 @@ public class MainActivity extends AppCompatActivity
     @BindView(R.id.btnUpload)
     Button mBtnUpload;
     private FirebaseAuth mAuth;
+    //private FirebaseUser mUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +64,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         mAuth = FirebaseAuth.getInstance();
+        //mUser = mAuth.getCurrentUser();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new OnClickListener() {
@@ -76,6 +83,16 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+        final SessionManager sesi = new SessionManager(MainActivity.this);
+        Log.d("ee ", sesi.getNama());
+        View v = navigationView.getHeaderView(0);
+
+        ImageView img =  v.findViewById(R.id.imageView);
+        TextView txtvna = v.findViewById(R.id.textViewNamaAgen);
+
+        txtvna.setText(sesi.getEmail());
+        Picasso.with(this).load(sesi.getNama()).into(img);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
@@ -111,7 +128,7 @@ public class MainActivity extends AppCompatActivity
            Toast.makeText(this, "Anda Sudah Keluar", Toast.LENGTH_SHORT).show();
             return true;
         } else if (id == R.id.action_foto_settings) {
-            startActivity(new Intent(MainActivity.this, UploadFotoTokoActivity.class));
+            //startActivity(new Intent(MainActivity.this, UploadFotoTokoActivity.class));
         }
 
         return super.onOptionsItemSelected(item);

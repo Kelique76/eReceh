@@ -96,6 +96,7 @@ public class UploadKtpActivity extends AppCompatActivity {
 
                                 Toast.makeText(UploadKtpActivity.this, "Unggahan Foto Berhasil", Toast.LENGTH_SHORT).show();
                                 mProgDiag.dismiss();
+                                finish();
 
 
                             }

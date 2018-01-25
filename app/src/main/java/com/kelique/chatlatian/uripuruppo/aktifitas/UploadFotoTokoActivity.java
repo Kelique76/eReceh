@@ -77,6 +77,7 @@ public class UploadFotoTokoActivity extends AppCompatActivity {
 //                                Picasso.with(UploadFotoTokoActivity.this).load(downloadUri).fit().centerCrop().error(R.mipmap.ic_launcher).into(mImage);
                                 Toast.makeText(UploadFotoTokoActivity.this, "Unggahan Foto Berhasil", Toast.LENGTH_SHORT).show();
                                 mProgDiag.dismiss();
+                                finish();
 
                             }
                         }).addOnProgressListener(new OnProgressListener<TaskSnapshot>() {

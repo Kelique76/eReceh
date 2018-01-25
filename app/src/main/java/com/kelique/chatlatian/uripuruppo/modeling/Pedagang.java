@@ -7,11 +7,11 @@ package com.kelique.chatlatian.uripuruppo.modeling;
 public class Pedagang {
 //data yang ditarik dari Firebase ini saja, sedangkan data yang akan dipakai untuk transaksi di TransaskiPedagangActivity hanya periode saja
     String key;
-    private String photoUrl;
-    private String name;
+    private String alamatUrl;
+    private String nama;
     private String alamat;
-    private String modal;
-    private String bghasil;
+    private String permodalan;
+    private String bagi_hasil;
     private String periode;
 
     public String getKey() {
@@ -22,20 +22,20 @@ public class Pedagang {
         this.key = key;
     }
 
-    public String getPhotoUrl() {
-        return photoUrl;
+    public String getalamatUrl() {
+        return alamatUrl;
     }
 
-    public void setPhotoUrl(String photoUrl) {
-        this.photoUrl = photoUrl;
+    public void setalamatUrl(String alamatUrl) {
+        this.alamatUrl = alamatUrl;
     }
 
-    public String getName() {
-        return name;
+    public String getnama() {
+        return nama;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setnama(String name) {
+        this.nama = name;
     }
 
     public String getAlamat() {
@@ -46,34 +46,34 @@ public class Pedagang {
         this.alamat = alamat;
     }
 
-    public String getModal() {
-        return modal;
+    public String getpermodalan() {
+        return permodalan;
     }
 
-    public void setModal(String modal) {
-        this.modal = modal;
+    public void setpermodalan(String modal) {
+        this.permodalan = modal;
     }
 
-    public String getBghasil() {
-        return bghasil;
+    public String getbagi_hasil() {
+        return bagi_hasil;
     }
 
-    public void setBghasil(String bghasil) {
-        this.bghasil = bghasil;
+    public void setbag_hasil(String bghasil) {
+        this.bagi_hasil = bghasil;
     }
 
-    public String getPeriode() {
+    public String getperiode() {
         return periode;
     }
 
-    public void setPeriode(String periode) {
+    public void setperiode(String periode) {
         this.periode = periode;
     }
     //    public Pedagang() {
 //    }
 //
-//    public Pedagang( String photoUrl, String name, String alamat, String modal, String bghasil, String periode) {
-//        this.photoUrl = photoUrl;
+//    public Pedagang( String alamatUrl, String name, String alamat, String modal, String bghasil, String periode) {
+//        this.alamatUrl = alamatUrl;
 //        this.name = name;
 //        this.alamat = alamat;
 //        this.modal = modal;
@@ -82,12 +82,12 @@ public class Pedagang {
 //    }
 //
 //
-//    public String getPhotoUrl() {
-//        return photoUrl;
+//    public String getalamatUrl() {
+//        return alamatUrl;
 //    }
 //
-//    public void setPhotoUrl(String photoUrl) {
-//        this.photoUrl = photoUrl;
+//    public void setalamatUrl(String alamatUrl) {
+//        this.alamatUrl = alamatUrl;
 //    }
 //
 //
