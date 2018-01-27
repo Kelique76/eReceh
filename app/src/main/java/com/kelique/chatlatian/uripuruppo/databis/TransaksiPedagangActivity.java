@@ -1,16 +1,15 @@
 package com.kelique.chatlatian.uripuruppo.databis;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
+import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.kelique.chatlatian.R;
 import com.kelique.chatlatian.uripuruppo.endpoin.FirebaseClient;
 import com.kelique.chatlatian.uripuruppo.helper.MyFunction;
@@ -20,16 +19,13 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class TransaksiPedagangActivity extends MyFunction {
 
 
     //TODO: masuk ke Firebase project ChatApp dengan USER: rrluck2017@gmail.com password: gadisa08
 
-//    boolean isFABOpen =  false;
-//    private FloatingActionButton fab, fab2, fab3;
-//    LinearLayout fabLayout2, fabLayout3;
-//    View fabBGLayout;
 
     @BindView(R.id.listview)
     ListView mListview;
@@ -37,10 +33,17 @@ public class TransaksiPedagangActivity extends MyFunction {
     FirebaseClient firebaseClient;
     @BindView(R.id.progressBar2)
     ProgressBar mProgressBar2;
-    @BindView(R.id.fab)
-    FloatingActionButton mFab;
-    private String DB_URL = "https://chat-app-64353.firebaseio.com/";
+    @BindView(R.id.buttonTambah)
+    FloatingActionButton mButtonTambah;
+    @BindView(R.id.buttonUrut)
+    FloatingActionButton mButtonUrut;
+    @BindView(R.id.buttonCari)
+    FloatingActionButton mButtonCari;
+    @BindView(R.id.multiple_actions_down)
+    FloatingActionsMenu mMultipleActionsDown;
 
+
+    private String DB_URL = "https://chat-app-64353.firebaseio.com/";
 
 
     @Override
@@ -50,44 +53,10 @@ public class TransaksiPedagangActivity extends MyFunction {
         setContentView(R.layout.tpa_databis_pedagang);
         ButterKnife.bind(this);
 
-//        fabLayout2= (LinearLayout) findViewById(R.id.fabLayout2);
-//        fabLayout3= (LinearLayout) findViewById(R.id.fabLayout3);
-//        fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fabBGLayout=findViewById(R.id.fabBGLayout);
-//
-//        fab2 = (FloatingActionButton) findViewById(R.id.fab2);
-//        fab3 = (FloatingActionButton) findViewById(R.id.fab3);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (!isFABOpen) {
-//                    showFABMenu();
-//                } else {
-//                    closeFABMenu();
-//                }
-//            }
-//        });
-//
-//        fabBGLayout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                closeFABMenu();
-//            }
-//        });
 
         setProgressBarIndeterminate(true);
 
 
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Cari data anggota", Snackbar.LENGTH_LONG)
-                        .setAction("nothing dulu ya", null).show();
-                //myIntent(TambahAktifity.class);
-            }
-        });
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mListview = (ListView) findViewById(R.id.listview);
 
@@ -167,6 +136,19 @@ public class TransaksiPedagangActivity extends MyFunction {
         firebaseClient = new FirebaseClient(this, DB_URL, mListview);
         firebaseClient.refreshdata();
     }
+
+    @OnClick({R.id.buttonTambah, R.id.buttonUrut, R.id.buttonCari})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.buttonTambah:
+                break;
+            case R.id.buttonUrut:
+                break;
+            case R.id.buttonCari:
+                break;
+        }
+    }
+
 
 //    private void showFABMenu(){
 //        isFABOpen=true;

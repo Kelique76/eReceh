@@ -3,10 +3,8 @@ package com.kelique.chatlatian.uripuruppo.aktifitas;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.NavigationView.OnNavigationItemSelectedListener;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -16,12 +14,13 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.google.firebase.auth.FirebaseAuth;
 import com.kelique.chatlatian.R;
 import com.kelique.chatlatian.uripuruppo.databis.TransaksiPedagangActivity;
@@ -50,6 +49,12 @@ public class MainActivity extends AppCompatActivity
     Button mBtnObrol;
     @BindView(R.id.btnUpload)
     Button mBtnUpload;
+    @BindView(R.id.action_pesan)
+    FloatingActionButton mActionA;
+    @BindView(R.id.action_trx)
+    FloatingActionButton mActionB;
+    @BindView(R.id.multiple_actions)
+    FloatingActionsMenu mMultipleActions;
     private FirebaseAuth mAuth;
     //private FirebaseUser mUser;
 
@@ -66,15 +71,6 @@ public class MainActivity extends AppCompatActivity
         mAuth = FirebaseAuth.getInstance();
         //mUser = mAuth.getCurrentUser();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Tambah Data Pedagang", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                startActivity(new Intent(MainActivity.this, TambahAktifity.class));
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -88,7 +84,7 @@ public class MainActivity extends AppCompatActivity
         Log.d("ee ", sesi.getNama());
         View v = navigationView.getHeaderView(0);
 
-        ImageView img =  v.findViewById(R.id.imageView);
+        ImageView img = v.findViewById(R.id.imageView);
         TextView txtvna = v.findViewById(R.id.textViewNamaAgen);
 
         txtvna.setText(sesi.getEmail());
@@ -125,7 +121,7 @@ public class MainActivity extends AppCompatActivity
             mAuth.getInstance().signOut();
             finish();
             startActivity(new Intent(MainActivity.this, DaftarLoginActivity.class));
-           Toast.makeText(this, "Anda Sudah Keluar", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Anda Sudah Keluar", Toast.LENGTH_SHORT).show();
             return true;
         } else if (id == R.id.action_foto_settings) {
             //startActivity(new Intent(MainActivity.this, UploadFotoTokoActivity.class));
@@ -165,7 +161,7 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    @OnClick({R.id.btnTambahpsrt, R.id.btnEcash, R.id.btnLiatpserta, R.id.btnBukatbank, R.id.btnObrol, R.id.btnUpload})
+    @OnClick({R.id.btnTambahpsrt, R.id.btnEcash, R.id.btnLiatpserta, R.id.btnBukatbank, R.id.btnObrol, R.id.btnUpload, R.id.action_pesan, R.id.action_trx})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btnTambahpsrt:
@@ -187,7 +183,12 @@ public class MainActivity extends AppCompatActivity
             case R.id.btnUpload:
                 startActivity(new Intent(MainActivity.this, KirimFotoActivity.class));
                 break;
+            case R.id.action_pesan:
+                break;
+            case R.id.action_trx:
+                break;
         }
     }
+
 
 }
